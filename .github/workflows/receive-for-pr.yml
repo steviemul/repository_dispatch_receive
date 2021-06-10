@@ -1,4 +1,4 @@
-name : receive
+name : receive for pr
 
 on:
   repository_dispatch:
