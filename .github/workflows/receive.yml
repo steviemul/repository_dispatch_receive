@@ -1,4 +1,4 @@
-name : send
+name : receive
 
 on:
   repository_dispatch:
