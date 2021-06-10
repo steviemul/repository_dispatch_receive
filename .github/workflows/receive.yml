@@ -8,7 +8,15 @@ jobs:
   send_version:
     runs-on: ubuntu-latest
     steps:
+      - name: install yq
+        run: |
+          sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CC86BB64
+          sudo add-apt-repository ppa:rmescandon/yq -y
+          sudo apt update -y
+          sudo apt install yq -y
+
       - uses: actions/checkout@v2
+      
       - name: Update Version
         run: |
           yq w --inplace config/application.yaml 'app.version.tag' "${{ github.event.client_payload.version }}"
