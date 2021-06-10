@@ -16,10 +16,10 @@ jobs:
           sudo apt install yq -y
 
       - uses: actions/checkout@v2
-      
+
       - name: Update Version
         run: |
-          yq w --inplace config/application.yaml 'app.version.tag' "${{ github.event.client_payload.version }}"
+          yq w --inplace config/properties.yml 'app.version.tag' "${{ github.event.client_payload.version }}"
       
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
