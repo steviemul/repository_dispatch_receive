@@ -1,0 +1,13 @@
+name : send
+
+on:
+  repository_dispatch:
+    types: [new-version-available]
+
+jobs:
+  send_version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Out Version
+        run: |
+          echo ${{ github.event.client_payload.version }}
