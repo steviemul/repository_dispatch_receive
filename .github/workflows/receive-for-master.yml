@@ -19,6 +19,9 @@ jobs:
 
       - name: Update Version
         run: |
+          git config --global user.name 'Github'
+          git config --global user.email 'github@users.noreply.github.com'
+          
           yq w --inplace config/properties.yml 'app.version.tag' "${{ github.event.client_payload.version }}"
 
           git add config/properties.yml
