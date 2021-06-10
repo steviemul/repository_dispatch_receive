@@ -8,8 +8,8 @@ jobs:
   send_version:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Update Version
-        uses: actions/checkout@v2
         run: |
           yq w --inplace config/application.yaml 'app.version.tag' "${{ github.event.client_payload.version }}"
       
